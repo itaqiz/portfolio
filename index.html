@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Taqui | AI & Data Science Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  body {
+    background: #0b1220;
+    color: white;
+  }
+  .glass {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+  }
+</style>
+</head>
+
+<body class="font-sans">
+
+<!-- HERO -->
+<section class="text-center py-20 px-6">
+  <h1 class="text-4xl md:text-6xl font-bold text-blue-400">
+    Muhammad Taqui
+  </h1>
+  <p class="text-xl mt-4 text-gray-300">
+    AI & Data Science Engineer | ML Practitioner | Research-Oriented Developer
+  </p>
+
+  <p class="mt-6 max-w-2xl mx-auto text-gray-400">
+    I build intelligent systems using Machine Learning, Data Science, and modern AI tools.
+    Focused on turning data into decisions and ideas into deployable systems.
+  </p>
+
+  <div class="mt-6 flex justify-center gap-4">
+    <a href="mailto:muhammadtaquichat@gmail.com" class="px-5 py-2 bg-blue-600 rounded-xl">Contact</a>
+    <a href="https://github.com/" class="px-5 py-2 border border-blue-500 rounded-xl">GitHub</a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="px-6 py-10">
+  <h2 class="text-2xl font-bold text-blue-400 mb-6">Core Skills</h2>
+
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="glass p-4 rounded-xl">🤖 AI / Machine Learning</div>
+    <div class="glass p-4 rounded-xl">📊 Data Science & Analytics</div>
+    <div class="glass p-4 rounded-xl">🐍 Python / SQL / R</div>
+    <div class="glass p-4 rounded-xl">🧠 Deep Learning & NLP</div>
+    <div class="glass p-4 rounded-xl">💻 Software Engineering</div>
+    <div class="glass p-4 rounded-xl">⚙️ AI Tools & Automation</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="px-6 py-10">
+  <h2 class="text-2xl font-bold text-blue-400 mb-6">Featured Projects</h2>
+
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <div class="glass p-5 rounded-xl">
+      <h3 class="font-bold">ML Prediction System</h3>
+      <p class="text-gray-400 text-sm">End-to-end machine learning pipeline using Python & sklearn.</p>
+    </div>
+
+    <div class="glass p-5 rounded-xl">
+      <h3 class="font-bold">AI Research Notes System</h3>
+      <p class="text-gray-400 text-sm">Structured AI research summaries & experiments tracking system.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="px-6 py-10">
+  <h2 class="text-2xl font-bold text-blue-400 mb-6">Certifications</h2>
+
+  <div class="glass p-4 rounded-xl mb-4">
+    <p class="font-bold">Featured Certifications</p>
+    <p class="text-gray-400 text-sm">
+      Google Data Analytics • IBM AI & Data Science • CS50x • GitHub Foundations • CertNexus ML
+    </p>
+  </div>
+
+  <details class="glass p-4 rounded-xl cursor-pointer">
+    <summary class="font-bold text-blue-300">View Full Certification Vault (250+)</summary>
+
+    <p class="text-gray-400 mt-3 text-sm">
+      This section contains 250+ verified certifications across:
+      AI, ML, Data Science, Programming, Tools, and Research domains.
+    </p>
+
+    <input 
+      type="text" 
+      placeholder="Search certifications..." 
+      class="mt-4 w-full p-2 rounded bg-black border border-gray-700"
+      onkeyup="filterCerts(this.value)"
+    />
+
+    <ul id="certList" class="mt-4 text-sm space-y-1 text-gray-300">
+      <li>Google Data Analytics Professional Certificate</li>
+      <li>IBM Applied AI Professional Certificate</li>
+      <li>CS50x Harvard University</li>
+      <li>GitHub Foundations</li>
+      <li>Machine Learning (Coursera IBM)</li>
+      <li>Deep Learning with TensorFlow</li>
+      <li>SQL for Data Science</li>
+      <li>Python for Data Science</li>
+    </ul>
+  </details>
+</section>
+
+<!-- BLOG -->
+<section class="px-6 py-10">
+  <h2 class="text-2xl font-bold text-blue-400 mb-6">Blog</h2>
+
+  <div class="glass p-5 rounded-xl">
+    <p class="text-gray-300">
+      Medium Articles:
+      <br/>
+      👉 Add your Medium: <strong>itaqiz</strong>
+    </p>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="px-6 py-10">
+  <h2 class="text-2xl font-bold text-blue-400 mb-6">Leadership & Programs</h2>
+
+  <div class="glass p-5 rounded-xl">
+    <p>• Aspire Leaders Program</p>
+    <p>• Google Gemini Certified Educator</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="px-6 py-10 text-center">
+  <h2 class="text-2xl font-bold text-blue-400 mb-4">Contact</h2>
+  <p class="text-gray-400">muhammadtaquichat@gmail.com</p>
+</section>
+
+<!-- SCRIPT -->
+<script>
+function filterCerts(query) {
+  const items = document.querySelectorAll("#certList li");
+  items.forEach(item => {
+    item.style.display = item.innerText.toLowerCase().includes(query.toLowerCase())
+      ? "block"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
