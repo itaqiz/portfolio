@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Muhammad Taqui — AI & Data Science</title>
 
 <meta name="description" content="Portfolio of Muhammad Taqui, an AI & Data Science professional focusing on ML, deep learning, and data systems."/>
@@ -22,7 +22,15 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* FIX 1: Strict lock on both html and body to kill horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,99,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0;}
 
 /* Navigation & Mobile Menu */
@@ -31,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{color:var(--mu);text-decoration:none;font-size:0.8rem;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:var(--tx);}
-.nav-cta{padding:0.45rem 1.3rem;border:1px solid rgba(108,99,255,0.45);border-radius:100px;color:var(--ac2);text-decoration:none;font-size:0.8rem;font-weight:500;transition:all 0.2s;}
+.nav-cta{padding:0.45rem 1.3rem;border:1px solid rgba(108,99,255,0.45);border-radius:100px;color:var(--ac2);text-decoration:none;font-size:0.8rem;font-weight:500;transition:all 0.2s;white-space:nowrap;}
 .nav-cta:hover{background:var(--ac);color:#fff;border-color:var(--ac);}
 .menu-toggle{display:none;background:none;border:none;color:var(--tx);font-size:1.5rem;cursor:pointer;}
 
@@ -41,12 +49,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   outline-offset: 4px;
 }
 
-/* Optimized Glow Effects (Removed blur filter for performance) */
+/* Optimized Glow Effects */
 .glow{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
 .ga{width:700px;height:700px;background:radial-gradient(circle,rgba(108,99,255,0.15) 0%,rgba(108,99,255,0) 60%);top:-150px;right:-200px;}
 .gb{width:400px;height:400px;background:radial-gradient(circle,rgba(45,212,191,0.1) 0%,rgba(45,212,191,0) 60%);bottom:0;left:-100px;}
 
-section{position:relative;z-index:1;}
+/* FIX 2: Strict overflow:hidden on all sections to trap rogue glow elements */
+section{position:relative;z-index:1;overflow:hidden;}
+
 .wrap{max-width:1100px;margin:0 auto;padding:6rem 3rem;}
 .sl{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ac2);margin-bottom:1rem;}
 .st{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem;}
@@ -56,15 +66,18 @@ section{position:relative;z-index:1;}
 .eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.28);border-radius:100px;padding:0.32rem 1rem;font-size:0.78rem;color:var(--ac2);letter-spacing:0.06em;margin-bottom:2rem;width:fit-content;}
 .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2.2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
-h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,7.5vw,5.8rem);font-weight:800;line-height:0.98;letter-spacing:-0.035em;margin-bottom:0.4rem;}
+
+/* FIX 3: Scaled down minimum font size & added overflow-wrap */
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,10vw,5.8rem);font-weight:800;line-height:0.98;letter-spacing:-0.035em;margin-bottom:0.4rem;overflow-wrap:break-word;word-wrap:break-word;}
 h1 em{font-style:normal;color:var(--ac2);}
+
 .hero-sub{font-size:clamp(0.95rem,1.8vw,1.2rem);color:var(--mu);max-width:500px;margin:1.6rem 0 2.8rem;font-weight:300;line-height:1.7;}
 .actions{display:flex;gap:1rem;flex-wrap:wrap;}
 .btn-p{padding:0.82rem 1.9rem;background:var(--ac);border:none;border-radius:100px;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.92rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.22s;}
 .btn-p:hover{background:#7c74ff;transform:translateY(-2px);}
 .btn-g{padding:0.82rem 1.9rem;background:transparent;border:1px solid var(--b2);border-radius:100px;color:var(--tx);font-family:'DM Sans',sans-serif;font-size:0.92rem;text-decoration:none;transition:all 0.22s;}
 .btn-g:hover{border-color:rgba(167,139,250,0.5);color:var(--ac2);}
-.stats{display:flex;gap:3rem;margin-top:5rem;padding-top:2.5rem;border-top:1px solid var(--b1);}
+.stats{display:flex;gap:3rem;margin-top:5rem;padding-top:2.5rem;border-top:1px solid var(--b1);flex-wrap:wrap;}
 .stat-n{font-family:'Syne',sans-serif;font-size:2.1rem;font-weight:800;line-height:1;}
 .stat-n span{color:var(--ac2);}
 .stat-l{font-size:0.76rem;color:var(--mu);letter-spacing:0.04em;margin-top:0.25rem;text-transform:uppercase;}
@@ -159,23 +172,25 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--b1);display:flex;justify-
 
 /* Mobile Responsiveness Updates */
 @media(max-width:768px){
+  /* Kept CTA visible in header but aligned properly with hamburger */
   nav{padding:1rem 1.5rem;flex-wrap:wrap;}
-  .menu-toggle{display:block;}
-  .nav-links{display:none;width:100%;flex-direction:column;gap:1.5rem;padding:1.5rem 0;align-items:center;margin-top:1rem;border-top:1px solid var(--b1);}
+  .menu-toggle{display:block;order:3;margin-left:auto;}
+  .nav-cta{order:2;margin-left:auto;margin-right:1rem;padding:0.35rem 1rem;} 
+  .logo{order:1;}
+  
+  .nav-links{display:none;width:100%;flex-direction:column;gap:1.5rem;padding:1.5rem 0;align-items:center;margin-top:1rem;border-top:1px solid var(--b1);order:4;}
   .nav-links.active{display:flex;}
-  .nav-cta{display:none;} /* Optional: hide CTA in mobile header to save space, or move into menu */
   
   .hero,.wrap{padding-left:1.5rem;padding-right:1.5rem;}
   .hero{padding-top:7rem;padding-bottom:4rem;}
   .wrap{padding-top:4rem;padding-bottom:4rem;}
   
-  /* Reduced grid gaps on mobile */
   .about-grid{grid-template-columns:1fr;gap:2.5rem;}
   .pg,.support-grid{grid-template-columns:1fr;gap:1.5rem;}
-  .sg{grid-template-columns:1fr;gap:1.5rem;} /* Force 1 column on mobile to prevent squeezing */
+  .sg{grid-template-columns:1fr;gap:1.5rem;}
   
   .pc.wide{grid-column:span 1;grid-template-columns:1fr;gap:1.5rem;}
-  .stats{gap:1.8rem;flex-wrap:wrap;}
+  .stats{gap:1.8rem;}
   .ritem{flex-wrap:wrap;}.rmeta{margin-left:0;}
 }
 </style>
@@ -184,6 +199,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--b1);display:flex;justify-
 
 <nav>
   <a href="#" class="logo">MT.</a>
+  <a href="mailto:muhammadtaquichat@gmail.com" class="nav-cta">Get in touch</a>
   <button class="menu-toggle" aria-label="Toggle navigation menu" id="mobile-menu-btn">☰</button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
@@ -193,10 +209,9 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--b1);display:flex;justify-
     <li><a href="#recognition">Recognition</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:muhammadtaquichat@gmail.com" class="nav-cta">Get in touch</a>
 </nav>
 
-<section style="position:relative;overflow:hidden;">
+<section>
   <div class="glow ga"></div>
   <div class="glow gb"></div>
   <div class="hero">
@@ -333,6 +348,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--b1);display:flex;justify-
 
 <section id="contact" class="contact-bg">
   <div class="glow ga" style="opacity:0.4;top:auto;bottom:-200px;right:-200px;"></div>
+  
   <div class="contact-inner">
     <p class="sl">Let's connect</p>
     <h2 class="st">Have a project<br>or opportunity?</h2>
@@ -361,7 +377,7 @@ footer{padding:1.75rem 3rem;border-top:1px solid var(--b1);display:flex;justify-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   
-  // --- Mobile Menu Toggle Logic ---
+  // Mobile Menu Logic
   var menuBtn = document.getElementById('mobile-menu-btn');
   var navLinks = document.getElementById('nav-links');
   
@@ -370,7 +386,6 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.classList.toggle('active');
     });
 
-    // Close menu when a link is clicked on mobile
     navLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         navLinks.classList.remove('active');
@@ -378,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Certifications Data & Filter Logic ---
+  // Certification Logic
   var certs = [
     {t:"CS50x Certificate",i:"Harvard University",d:"2025",c:"Harvard"},
     {t:"GitHub Foundations",i:"GitHub",d:"Jun 2025",c:"Prog"},
@@ -580,10 +595,8 @@ document.addEventListener('DOMContentLoaded', function() {
     visEl.textContent = filtered.length;
   }
 
-  // Initial render
   render();
 
-  // Search input
   var searchEl = document.getElementById('csearch');
   if (searchEl) {
     searchEl.addEventListener('input', function(e) {
@@ -592,7 +605,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Filter buttons
   var filtersEl = document.getElementById('filters');
   if (filtersEl) {
     filtersEl.addEventListener('click', function(e) {
@@ -605,7 +617,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Scroll reveal
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) e.target.classList.add('in');
@@ -614,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
 
-}); // end DOMContentLoaded
+}); 
 </script>
 </body>
 </html>
